@@ -16,15 +16,23 @@ export default {
   plugins: [
     svelte({
       emitCss: false,
-      preprocess: autoPreprocess(),
+      preprocess: autoPreprocess({
+        typescript: {
+          compilerOptions: {
+            verbatimModuleSyntax: true,
+          },
+        },
+      }),
     }),
-    typescript({ sourceMap: env.env === "DEV" }),
+    typescript({ sourceMap: env.env === "DEV", noEmitOnError: false }),
     resolve({
       browser: true,
-      dedupe: ["svelte"],
+      dedupe: ["svelte", "obsidian-daily-notes-interface"],
+      extensions: [".mjs", ".js", ".ts", ".svelte", ".json"],
+      rootDir: ".",
     }),
     commonjs({
-      include: "node_modules/**",
+      include: [/node_modules/],
     }),
   ],
 };

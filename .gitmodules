@@ -1,0 +1,3 @@
+[submodule "src/obsidian-calendar-ui"]
+	path = src/obsidian-calendar-ui
+	url = https://github.com/susiel007/obsidian-calendar-ui.git

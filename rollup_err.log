@@ -1,0 +1,960 @@
+[36m
+[1msrc/main.ts[22m → [1mmain.js[22m...[39m
+(node:10405) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/rollup.config.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1m[33m(!) [plugin typescript] src/io/dailyNotes.ts (25:45): @rollup/plugin-typescript TS2345: Argument of type 'moment.Moment' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").Moment'.
+  The types of 'creationData().input' are incompatible between these types.
+    Type 'moment.MomentInput' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").MomentInput'.
+      Type 'Moment' is not assignable to type 'MomentInput'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/io/dailyNotes.ts:25:45[22m
+[90m
+[7m25[0m     const dailyNote = await createDailyNote(date);
+[7m  [0m [91m                                            ~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/io/dailyNotes.ts (30:25): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile'.
+  The types of 'vault.read' are incompatible between these types.
+    Type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile) => Promise<...>' is not assignable to type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile) => Promise<string>'.
+      Types of parameters 'file' and 'file' are incompatible.
+        Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+          Types of property 'vault' are incompatible.
+            Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/io/dailyNotes.ts:30:25[22m
+[90m
+[7m30[0m     await leaf.openFile(dailyNote, { active : true });
+[7m  [0m [91m                        ~~~~~~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/io/dailyNotes.ts (31:10): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile'.
+  The types of 'vault.read' are incompatible between these types.
+    Type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile) => Promise<...>' is not assignable to type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile) => Promise<string>'.
+      Types of parameters 'file' and 'file' are incompatible.
+        Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+          Types of property 'vault' are incompatible.
+            Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/io/dailyNotes.ts:31:10[22m
+[90m
+[7m31[0m     cb?.(dailyNote);
+[7m  [0m [91m         ~~~~~~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/io/weeklyNotes.ts (25:46): @rollup/plugin-typescript TS2345: Argument of type 'moment.Moment' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").Moment'.
+  The types of 'creationData().input' are incompatible between these types.
+    Type 'moment.MomentInput' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").MomentInput'.
+      Type 'Moment' is not assignable to type 'MomentInput'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/io/weeklyNotes.ts:25:46[22m
+[90m
+[7m25[0m     const dailyNote = await createWeeklyNote(date);
+[7m  [0m [91m                                             ~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/io/weeklyNotes.ts (30:25): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile'.
+  The types of 'vault.read' are incompatible between these types.
+    Type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile) => Promise<...>' is not assignable to type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile) => Promise<string>'.
+      Types of parameters 'file' and 'file' are incompatible.
+        Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+          Types of property 'vault' are incompatible.
+            Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/io/weeklyNotes.ts:30:25[22m
+[90m
+[7m30[0m     await leaf.openFile(dailyNote, { active : true });
+[7m  [0m [91m                        ~~~~~~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/io/weeklyNotes.ts (31:10): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile'.
+  The types of 'vault.read' are incompatible between these types.
+    Type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile) => Promise<...>' is not assignable to type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile) => Promise<string>'.
+      Types of parameters 'file' and 'file' are incompatible.
+        Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+          Types of property 'vault' are incompatible.
+            Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/io/weeklyNotes.ts:31:10[22m
+[90m
+[7m31[0m     cb?.(dailyNote);
+[7m  [0m [91m         ~~~~~~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/main.ts (16:5): @rollup/plugin-typescript TS2717: Subsequent property declarations must have the same type.  Property 'moment' must be of type 'typeof moment', but here has type '() => Moment'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/main.ts:16:5[22m
+[90m
+[7m16[0m     moment: () => Moment;
+[7m  [0m [91m    ~~~~~~[0m
+
+  [96msrc/obsidian-calendar-ui/src/index.ts[0m:[93m15[0m:[93m5[0m
+    [7m15[0m     moment: typeof moment;
+    [7m  [0m [96m    ~~~~~~[0m
+    'moment' was also declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/main.ts (81:31): @rollup/plugin-typescript TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type '"layout-ready"' is not assignable to parameter of type '"quit"'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/main.ts:81:31[22m
+[90m
+[7m81[0m         this.app.workspace.on("layout-ready", this.initLeaf.bind(this))
+[7m  [0m [91m                              ~~~~~~~~~~~~~~[0m
+
+  [96mnode_modules/obsidian/obsidian.d.ts[0m:[93m4956[0m:[93m5[0m
+    [7m4956[0m     on(name: 'quit', callback: (tasks: Tasks) => any, ctx?: any): EventRef;
+    [7m    [0m [96m    ~~[0m
+    The last overload is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/obsidian-calendar-ui/src/fileStore.ts (23:34): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+  Types of property 'vault' are incompatible.
+    Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/obsidian-calendar-ui/src/fileStore.ts:23:34[22m
+[90m
+[7m23[0m     const date = getDateFromFile(file, granularity);
+[7m  [0m [91m                                 ~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/obsidian-calendar-ui/src/fileStore.ts (112:20): @rollup/plugin-typescript TS2345: Argument of type '{ [x: string]: TFile; }' is not assignable to parameter of type 'Record<string, TFile>'.
+  'string' index signatures are incompatible.
+    Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile'.
+      The types of 'vault.read' are incompatible between these types.
+        Type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile) => Promise<...>' is not assignable to type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile) => Promise<string>'.
+          Types of parameters 'file' and 'file' are incompatible.
+            Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+              Types of property 'vault' are incompatible.
+                Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/obsidian-calendar-ui/src/fileStore.ts:112:20[22m
+[90m
+[7m112[0m     this.store.set({
+[7m   [0m [91m                   ~[0m
+[7m113[0m       ...getAllDailyNotes(),
+[7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m...[0m 
+[7m115[0m       ...getAllMonthlyNotes(),
+[7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[7m116[0m     });
+[7m   [0m [91m~~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/obsidian-calendar-ui/src/fileStore.ts (120:28): @rollup/plugin-typescript TS2345: Argument of type 'moment.Moment' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").Moment'.
+  The types of 'creationData().input' are incompatible between these types.
+    Type 'moment.MomentInput' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").MomentInput'.
+      Type 'Moment' is not assignable to type 'MomentInput'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/obsidian-calendar-ui/src/fileStore.ts:120:28[22m
+[90m
+[7m120[0m     const uid = getDateUID(date, granularity);
+[7m   [0m [91m                           ~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/obsidian-calendar-ui/src/fileStore.ts (134:28): @rollup/plugin-typescript TS2345: Argument of type 'moment.Moment' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").Moment'.
+  The types of 'creationData().input' are incompatible between these types.
+    Type 'moment.MomentInput' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").MomentInput'.
+      Type 'Moment' is not assignable to type 'MomentInput'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/obsidian-calendar-ui/src/fileStore.ts:134:28[22m
+[90m
+[7m134[0m     const uid = getDateUID(date, granularity);
+[7m   [0m [91m                           ~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/obsidian-calendar-ui/src/testUtils/mockApp.ts (7:5): @rollup/plugin-typescript TS2739: Type '{ exists: () => Promise<boolean>; getName: () => string; list: () => Promise<any>; read: () => Promise<any>; readBinary: () => Promise<any>; write: () => Promise<void>; ... 8 more ...; copy: () => Promise<...>; }' is missing the following properties from type 'DataAdapter': stat, append, process[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/obsidian-calendar-ui/src/testUtils/mockApp.ts:7:5[22m
+[90m
+[7m7[0m     adapter: {
+[7m [0m [91m    ~~~~~~~[0m
+
+  [96mnode_modules/obsidian/obsidian.d.ts[0m:[93m4239[0m:[93m5[0m
+    [7m4239[0m     adapter: DataAdapter;
+    [7m    [0m [96m    ~~~~~~~[0m
+    The expected type comes from property 'adapter' which is declared here on type 'Vault'
+[39m
+[1m[33m(!) [plugin typescript] src/settings.ts (3:15): @rollup/plugin-typescript TS2305: Module '"obsidian-calendar-ui"' has no exported member 'ILocaleOverride'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/settings.ts:3:15[22m
+[90m
+[7m3[0m import type { ILocaleOverride, IWeekStartOption } from "obsidian-calendar-ui";
+[7m [0m [91m              ~~~~~~~~~~~~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/settings.ts (3:32): @rollup/plugin-typescript TS2305: Module '"obsidian-calendar-ui"' has no exported member 'IWeekStartOption'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/settings.ts:3:32[22m
+[90m
+[7m3[0m import type { ILocaleOverride, IWeekStartOption } from "obsidian-calendar-ui";
+[7m [0m [91m                               ~~~~~~~~~~~~~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/testUtils/mockApp.ts (6:5): @rollup/plugin-typescript TS2739: Type '{ exists: () => Promise<boolean>; getName: () => string; list: () => Promise<any>; read: () => Promise<any>; readBinary: () => Promise<any>; write: () => Promise<void>; ... 8 more ...; copy: () => Promise<...>; }' is missing the following properties from type 'DataAdapter': stat, append, process[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/testUtils/mockApp.ts:6:5[22m
+[90m
+[7m6[0m     adapter: {
+[7m [0m [91m    ~~~~~~~[0m
+
+  [96mnode_modules/obsidian/obsidian.d.ts[0m:[93m4239[0m:[93m5[0m
+    [7m4239[0m     adapter: DataAdapter;
+    [7m    [0m [96m    ~~~~~~~[0m
+    The expected type comes from property 'adapter' which is declared here on type 'Vault'
+[39m
+[1m[33m(!) [plugin typescript] src/testUtils/settings.ts (6:3): @rollup/plugin-typescript TS2322: Type '{ weekStart: string; shouldConfirmBeforeCreate: boolean; wordsPerDot: number; showWeeklyNote: boolean; weeklyNoteFolder: string; weeklyNoteFormat: string; weeklyNoteTemplate: string; } & Partial<...>' is not assignable to type 'ISettings'.
+  Property 'localeOverride' is optional in type '{ weekStart: string; shouldConfirmBeforeCreate: boolean; wordsPerDot: number; showWeeklyNote: boolean; weeklyNoteFolder: string; weeklyNoteFormat: string; weeklyNoteTemplate: string; } & Partial<...>' but required in type 'ISettings'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/testUtils/settings.ts:6:3[22m
+[90m
+[7m6[0m   return Object.assign(
+[7m [0m [91m  ~~~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/ui/fileMenu.ts (4:29): @rollup/plugin-typescript TS2554: Expected 0 arguments, but got 1.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/fileMenu.ts:4:29[22m
+[90m
+[7m4[0m   const fileMenu = new Menu(app);
+[7m [0m [91m                            ~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/streak.ts (17:3): @rollup/plugin-typescript TS2561: Object literal may only specify known properties, but 'getDailyMetadata' does not exist in type 'ICalendarSource'. Did you mean to write 'getMetadata'?[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/streak.ts:17:3[22m
+[90m
+[7m17[0m   getDailyMetadata: async (date: Moment): Promise<IDayMetadata> => {
+[7m  [0m [91m  ~~~~~~~~~~~~~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/streak.ts (18:31): @rollup/plugin-typescript TS2345: Argument of type 'moment.Moment' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").Moment'.
+  The types of 'creationData().input' are incompatible between these types.
+    Type 'moment.MomentInput' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").MomentInput'.
+      Type 'Moment' is not assignable to type 'MomentInput'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/streak.ts:18:31[22m
+[90m
+[7m18[0m     const file = getDailyNote(date, get(dailyNotes));
+[7m  [0m [91m                              ~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/streak.ts (20:7): @rollup/plugin-typescript TS2353: Object literal may only specify known properties, and 'classes' does not exist in type 'IDayMetadata'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/streak.ts:20:7[22m
+[90m
+[7m20[0m       classes: getStreakClasses(file),
+[7m  [0m [91m      ~~~~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/streak.ts (20:33): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile'.
+  The types of 'vault.read' are incompatible between these types.
+    Type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile) => Promise<...>' is not assignable to type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile) => Promise<string>'.
+      Types of parameters 'file' and 'file' are incompatible.
+        Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+          Types of property 'vault' are incompatible.
+            Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/streak.ts:20:33[22m
+[90m
+[7m20[0m       classes: getStreakClasses(file),
+[7m  [0m [91m                                ~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/streak.ts (26:32): @rollup/plugin-typescript TS2345: Argument of type 'moment.Moment' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").Moment'.
+  The types of 'creationData().input' are incompatible between these types.
+    Type 'moment.MomentInput' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").MomentInput'.
+      Type 'Moment' is not assignable to type 'MomentInput'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/streak.ts:26:32[22m
+[90m
+[7m26[0m     const file = getWeeklyNote(date, get(weeklyNotes));
+[7m  [0m [91m                               ~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/streak.ts (28:7): @rollup/plugin-typescript TS2353: Object literal may only specify known properties, and 'classes' does not exist in type 'IDayMetadata'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/streak.ts:28:7[22m
+[90m
+[7m28[0m       classes: getStreakClasses(file),
+[7m  [0m [91m      ~~~~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/streak.ts (28:33): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile'.
+  The types of 'vault.read' are incompatible between these types.
+    Type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile) => Promise<...>' is not assignable to type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile) => Promise<string>'.
+      Types of parameters 'file' and 'file' are incompatible.
+        Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+          Types of property 'vault' are incompatible.
+            Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/streak.ts:28:33[22m
+[90m
+[7m28[0m       classes: getStreakClasses(file),
+[7m  [0m [91m                                ~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/tags.ts (51:3): @rollup/plugin-typescript TS2561: Object literal may only specify known properties, but 'getDailyMetadata' does not exist in type 'ICalendarSource'. Did you mean to write 'getMetadata'?[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/tags.ts:51:3[22m
+[90m
+[7m51[0m   getDailyMetadata: async (date: Moment): Promise<IDayMetadata> => {
+[7m  [0m [91m  ~~~~~~~~~~~~~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/tags.ts (52:31): @rollup/plugin-typescript TS2345: Argument of type 'moment.Moment' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").Moment'.
+  The types of 'creationData().input' are incompatible between these types.
+    Type 'moment.MomentInput' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").MomentInput'.
+      Type 'Moment' is not assignable to type 'MomentInput'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/tags.ts:52:31[22m
+[90m
+[7m52[0m     const file = getDailyNote(date, get(dailyNotes));
+[7m  [0m [91m                              ~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/tags.ts (54:7): @rollup/plugin-typescript TS2353: Object literal may only specify known properties, and 'dataAttributes' does not exist in type 'IDayMetadata'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/tags.ts:54:7[22m
+[90m
+[7m54[0m       dataAttributes: getFormattedTagAttributes(file),
+[7m  [0m [91m      ~~~~~~~~~~~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/tags.ts (54:49): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile'.
+  The types of 'vault.read' are incompatible between these types.
+    Type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile) => Promise<...>' is not assignable to type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile) => Promise<string>'.
+      Types of parameters 'file' and 'file' are incompatible.
+        Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+          Types of property 'vault' are incompatible.
+            Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/tags.ts:54:49[22m
+[90m
+[7m54[0m       dataAttributes: getFormattedTagAttributes(file),
+[7m  [0m [91m                                                ~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/tags.ts (59:32): @rollup/plugin-typescript TS2345: Argument of type 'moment.Moment' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").Moment'.
+  The types of 'creationData().input' are incompatible between these types.
+    Type 'moment.MomentInput' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").MomentInput'.
+      Type 'Moment' is not assignable to type 'MomentInput'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/tags.ts:59:32[22m
+[90m
+[7m59[0m     const file = getWeeklyNote(date, get(weeklyNotes));
+[7m  [0m [91m                               ~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/tags.ts (61:7): @rollup/plugin-typescript TS2353: Object literal may only specify known properties, and 'dataAttributes' does not exist in type 'IDayMetadata'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/tags.ts:61:7[22m
+[90m
+[7m61[0m       dataAttributes: getFormattedTagAttributes(file),
+[7m  [0m [91m      ~~~~~~~~~~~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/tags.ts (61:49): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile'.
+  The types of 'vault.read' are incompatible between these types.
+    Type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile) => Promise<...>' is not assignable to type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile) => Promise<string>'.
+      Types of parameters 'file' and 'file' are incompatible.
+        Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+          Types of property 'vault' are incompatible.
+            Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/tags.ts:61:49[22m
+[90m
+[7m61[0m       dataAttributes: getFormattedTagAttributes(file),
+[7m  [0m [91m                                                ~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/tasks.ts (39:3): @rollup/plugin-typescript TS2561: Object literal may only specify known properties, but 'getDailyMetadata' does not exist in type 'ICalendarSource'. Did you mean to write 'getMetadata'?[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/tasks.ts:39:3[22m
+[90m
+[7m39[0m   getDailyMetadata: async (date: Moment): Promise<IDayMetadata> => {
+[7m  [0m [91m  ~~~~~~~~~~~~~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/tasks.ts (40:31): @rollup/plugin-typescript TS2345: Argument of type 'moment.Moment' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").Moment'.
+  The types of 'creationData().input' are incompatible between these types.
+    Type 'moment.MomentInput' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").MomentInput'.
+      Type 'Moment' is not assignable to type 'MomentInput'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/tasks.ts:40:31[22m
+[90m
+[7m40[0m     const file = getDailyNote(date, get(dailyNotes));
+[7m  [0m [91m                              ~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/tasks.ts (41:44): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile'.
+  The types of 'vault.read' are incompatible between these types.
+    Type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile) => Promise<...>' is not assignable to type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile) => Promise<string>'.
+      Types of parameters 'file' and 'file' are incompatible.
+        Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+          Types of property 'vault' are incompatible.
+            Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/tasks.ts:41:44[22m
+[90m
+[7m41[0m     const dots = await getDotsForDailyNote(file);
+[7m  [0m [91m                                           ~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/tasks.ts (42:51): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile'.
+  The types of 'vault.read' are incompatible between these types.
+    Type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile) => Promise<...>' is not assignable to type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile) => Promise<string>'.
+      Types of parameters 'file' and 'file' are incompatible.
+        Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+          Types of property 'vault' are incompatible.
+            Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/tasks.ts:42:51[22m
+[90m
+[7m42[0m     const value = await getNumberOfRemainingTasks(file);
+[7m  [0m [91m                                                  ~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/tasks.ts (43:5): @rollup/plugin-typescript TS2740: Type '{ dots: IDot[]; value: number; }' is missing the following properties from type 'IDayMetadata': id, name, defaultSettings, color, and 2 more.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/tasks.ts:43:5[22m
+[90m
+[7m43[0m     return {
+[7m  [0m [91m    ~~~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/tasks.ts (50:32): @rollup/plugin-typescript TS2345: Argument of type 'moment.Moment' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").Moment'.
+  The types of 'creationData().input' are incompatible between these types.
+    Type 'moment.MomentInput' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").MomentInput'.
+      Type 'Moment' is not assignable to type 'MomentInput'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/tasks.ts:50:32[22m
+[90m
+[7m50[0m     const file = getWeeklyNote(date, get(weeklyNotes));
+[7m  [0m [91m                               ~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/tasks.ts (51:44): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile'.
+  The types of 'vault.read' are incompatible between these types.
+    Type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile) => Promise<...>' is not assignable to type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile) => Promise<string>'.
+      Types of parameters 'file' and 'file' are incompatible.
+        Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+          Types of property 'vault' are incompatible.
+            Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/tasks.ts:51:44[22m
+[90m
+[7m51[0m     const dots = await getDotsForDailyNote(file);
+[7m  [0m [91m                                           ~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/tasks.ts (52:51): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile'.
+  The types of 'vault.read' are incompatible between these types.
+    Type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile) => Promise<...>' is not assignable to type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile) => Promise<string>'.
+      Types of parameters 'file' and 'file' are incompatible.
+        Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+          Types of property 'vault' are incompatible.
+            Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/tasks.ts:52:51[22m
+[90m
+[7m52[0m     const value = await getNumberOfRemainingTasks(file);
+[7m  [0m [91m                                                  ~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/tasks.ts (54:5): @rollup/plugin-typescript TS2740: Type '{ dots: IDot[]; value: number; }' is missing the following properties from type 'IDayMetadata': id, name, defaultSettings, color, and 2 more.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/tasks.ts:54:5[22m
+[90m
+[7m54[0m     return {
+[7m  [0m [91m    ~~~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/wordCount.ts (53:3): @rollup/plugin-typescript TS2561: Object literal may only specify known properties, but 'getDailyMetadata' does not exist in type 'ICalendarSource'. Did you mean to write 'getMetadata'?[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/wordCount.ts:53:3[22m
+[90m
+[7m53[0m   getDailyMetadata: async (date: Moment): Promise<IDayMetadata> => {
+[7m  [0m [91m  ~~~~~~~~~~~~~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/wordCount.ts (54:31): @rollup/plugin-typescript TS2345: Argument of type 'moment.Moment' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").Moment'.
+  The types of 'creationData().input' are incompatible between these types.
+    Type 'moment.MomentInput' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").MomentInput'.
+      Type 'Moment' is not assignable to type 'MomentInput'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/wordCount.ts:54:31[22m
+[90m
+[7m54[0m     const file = getDailyNote(date, get(dailyNotes));
+[7m  [0m [91m                              ~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/wordCount.ts (55:44): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile'.
+  The types of 'vault.read' are incompatible between these types.
+    Type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile) => Promise<...>' is not assignable to type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile) => Promise<string>'.
+      Types of parameters 'file' and 'file' are incompatible.
+        Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+          Types of property 'vault' are incompatible.
+            Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/wordCount.ts:55:44[22m
+[90m
+[7m55[0m     const dots = await getDotsForDailyNote(file);
+[7m  [0m [91m                                           ~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/wordCount.ts (56:45): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile'.
+  The types of 'vault.read' are incompatible between these types.
+    Type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile) => Promise<...>' is not assignable to type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile) => Promise<string>'.
+      Types of parameters 'file' and 'file' are incompatible.
+        Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+          Types of property 'vault' are incompatible.
+            Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/wordCount.ts:56:45[22m
+[90m
+[7m56[0m     const value = await getWordCountForNote(file);
+[7m  [0m [91m                                            ~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/wordCount.ts (57:5): @rollup/plugin-typescript TS2740: Type '{ dots: IDot[]; value: number; }' is missing the following properties from type 'IDayMetadata': id, name, defaultSettings, color, and 2 more.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/wordCount.ts:57:5[22m
+[90m
+[7m57[0m     return {
+[7m  [0m [91m    ~~~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/wordCount.ts (64:32): @rollup/plugin-typescript TS2345: Argument of type 'moment.Moment' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").Moment'.
+  The types of 'creationData().input' are incompatible between these types.
+    Type 'moment.MomentInput' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").MomentInput'.
+      Type 'Moment' is not assignable to type 'MomentInput'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/wordCount.ts:64:32[22m
+[90m
+[7m64[0m     const file = getWeeklyNote(date, get(weeklyNotes));
+[7m  [0m [91m                               ~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/wordCount.ts (65:44): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile'.
+  The types of 'vault.read' are incompatible between these types.
+    Type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile) => Promise<...>' is not assignable to type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile) => Promise<string>'.
+      Types of parameters 'file' and 'file' are incompatible.
+        Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+          Types of property 'vault' are incompatible.
+            Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/wordCount.ts:65:44[22m
+[90m
+[7m65[0m     const dots = await getDotsForDailyNote(file);
+[7m  [0m [91m                                           ~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/wordCount.ts (66:45): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile'.
+  The types of 'vault.read' are incompatible between these types.
+    Type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile) => Promise<...>' is not assignable to type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile) => Promise<string>'.
+      Types of parameters 'file' and 'file' are incompatible.
+        Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+          Types of property 'vault' are incompatible.
+            Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/wordCount.ts:66:45[22m
+[90m
+[7m66[0m     const value = await getWordCountForNote(file);
+[7m  [0m [91m                                            ~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/ui/sources/wordCount.ts (68:5): @rollup/plugin-typescript TS2740: Type '{ dots: IDot[]; value: number; }' is missing the following properties from type 'IDayMetadata': id, name, defaultSettings, color, and 2 more.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/sources/wordCount.ts:68:5[22m
+[90m
+[7m68[0m     return {
+[7m  [0m [91m    ~~~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/ui/stores.ts (19:19): @rollup/plugin-typescript TS2345: Argument of type 'Record<string, import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile>' is not assignable to parameter of type 'Record<string, import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile>'.
+  'string' index signatures are incompatible.
+    Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile'.
+      The types of 'vault.read' are incompatible between these types.
+        Type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile) => Promise<...>' is not assignable to type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile) => Promise<string>'.
+          Types of parameters 'file' and 'file' are incompatible.
+            Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+              Types of property 'vault' are incompatible.
+                Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/stores.ts:19:19[22m
+[90m
+[7m19[0m         store.set(dailyNotes);
+[7m  [0m [91m                  ~~~~~~~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/ui/stores.ts (41:19): @rollup/plugin-typescript TS2345: Argument of type 'Record<string, import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile>' is not assignable to parameter of type 'Record<string, import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile>'.
+  'string' index signatures are incompatible.
+    Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile'.
+      The types of 'vault.read' are incompatible between these types.
+        Type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile) => Promise<...>' is not assignable to type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile) => Promise<string>'.
+          Types of parameters 'file' and 'file' are incompatible.
+            Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+              Types of property 'vault' are incompatible.
+                Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/stores.ts:41:19[22m
+[90m
+[7m41[0m         store.set(weeklyNotes);
+[7m  [0m [91m                  ~~~~~~~~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/ui/utils.ts (48:30): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+  Types of property 'vault' are incompatible.
+    Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/utils.ts:48:30[22m
+[90m
+[7m48[0m   let date = getDateFromFile(file, "day");
+[7m  [0m [91m                             ~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/ui/utils.ts (53:26): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+  Types of property 'vault' are incompatible.
+    Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/utils.ts:53:26[22m
+[90m
+[7m53[0m   date = getDateFromFile(file, "week");
+[7m  [0m [91m                         ~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/view.ts (126:31): @rollup/plugin-typescript TS2345: Argument of type 'moment.Moment' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").Moment'.
+  The types of 'creationData().input' are incompatible between these types.
+    Type 'moment.MomentInput' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").MomentInput'.
+      Type 'Moment' is not assignable to type 'MomentInput'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/view.ts:126:31[22m
+[90m
+[7m126[0m     const note = getDailyNote(date, get(dailyNotes));
+[7m   [0m [91m                              ~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/view.ts (144:32): @rollup/plugin-typescript TS2345: Argument of type 'moment.Moment' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").Moment'.
+  The types of 'creationData().input' are incompatible between these types.
+    Type 'moment.MomentInput' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").MomentInput'.
+      Type 'Moment' is not assignable to type 'MomentInput'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/view.ts:144:32[22m
+[90m
+[7m144[0m     const note = getWeeklyNote(date, get(weeklyNotes));
+[7m   [0m [91m                               ~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/view.ts (156:31): @rollup/plugin-typescript TS2345: Argument of type 'moment.Moment' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").Moment'.
+  The types of 'creationData().input' are incompatible between these types.
+    Type 'moment.MomentInput' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").MomentInput'.
+      Type 'Moment' is not assignable to type 'MomentInput'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/view.ts:156:31[22m
+[90m
+[7m156[0m     const note = getDailyNote(date, get(dailyNotes));
+[7m   [0m [91m                              ~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/view.ts (161:28): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile'.
+  The types of 'vault.read' are incompatible between these types.
+    Type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile) => Promise<...>' is not assignable to type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile) => Promise<string>'.
+      Types of parameters 'file' and 'file' are incompatible.
+        Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+          Types of property 'vault' are incompatible.
+            Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/view.ts:161:28[22m
+[90m
+[7m161[0m     showFileMenu(this.app, note, {
+[7m   [0m [91m                           ~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/view.ts (168:32): @rollup/plugin-typescript TS2345: Argument of type 'moment.Moment' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").Moment'.
+  The types of 'creationData().input' are incompatible between these types.
+    Type 'moment.MomentInput' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").MomentInput'.
+      Type 'Moment' is not assignable to type 'MomentInput'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/view.ts:168:32[22m
+[90m
+[7m168[0m     const note = getWeeklyNote(date, get(weeklyNotes));
+[7m   [0m [91m                               ~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/view.ts (173:28): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile'.
+  The types of 'vault.read' are incompatible between these types.
+    Type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile) => Promise<...>' is not assignable to type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile) => Promise<string>'.
+      Types of parameters 'file' and 'file' are incompatible.
+        Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+          Types of property 'vault' are incompatible.
+            Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/view.ts:173:28[22m
+[90m
+[7m173[0m     showFileMenu(this.app, note, {
+[7m   [0m [91m                           ~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/view.ts (186:25): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+  Types of property 'vault' are incompatible.
+    Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/view.ts:186:25[22m
+[90m
+[7m186[0m     if (getDateFromFile(file, "day")) {
+[7m   [0m [91m                        ~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/view.ts (190:25): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+  Types of property 'vault' are incompatible.
+    Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/view.ts:190:25[22m
+[90m
+[7m190[0m     if (getDateFromFile(file, "week")) {
+[7m   [0m [91m                        ~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/view.ts (197:34): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+  Types of property 'vault' are incompatible.
+    Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/view.ts:197:34[22m
+[90m
+[7m197[0m     const date = getDateFromFile(file, "day") || getDateFromFile(file, "week");
+[7m   [0m [91m                                 ~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/view.ts (197:66): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+  Types of property 'vault' are incompatible.
+    Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/view.ts:197:66[22m
+[90m
+[7m197[0m     const date = getDateFromFile(file, "day") || getDateFromFile(file, "week");
+[7m   [0m [91m                                                                 ~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/view.ts (205:27): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+  Types of property 'vault' are incompatible.
+    Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/view.ts:205:27[22m
+[90m
+[7m205[0m       if (getDateFromFile(file, "day")) {
+[7m   [0m [91m                          ~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/view.ts (209:27): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+  Types of property 'vault' are incompatible.
+    Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/view.ts:209:27[22m
+[90m
+[7m209[0m       if (getDateFromFile(file, "week")) {
+[7m   [0m [91m                          ~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/view.ts (242:34): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+  Types of property 'vault' are incompatible.
+    Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/view.ts:242:34[22m
+[90m
+[7m242[0m       let date = getDateFromFile(activeLeaf.view.file, "day");
+[7m   [0m [91m                                 ~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/view.ts (250:7): @rollup/plugin-typescript TS2322: Type 'moment.Moment' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").Moment'.
+  The types of 'creationData().input' are incompatible between these types.
+    Type 'moment.MomentInput' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").MomentInput'.
+      Type 'Moment' is not assignable to type 'MomentInput'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/view.ts:250:7[22m
+[90m
+[7m250[0m       date = moment(activeLeaf.view.file.basename, format, true);
+[7m   [0m [91m      ~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/view.ts (266:40): @rollup/plugin-typescript TS2345: Argument of type 'moment.Moment' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").Moment'.
+  The types of 'creationData().input' are incompatible between these types.
+    Type 'moment.MomentInput' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").MomentInput'.
+      Type 'Moment' is not assignable to type 'MomentInput'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/view.ts:266:40[22m
+[90m
+[7m266[0m     const existingFile = getWeeklyNote(date, get(weeklyNotes));
+[7m   [0m [91m                                       ~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/view.ts (279:25): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile'.
+  The types of 'vault.read' are incompatible between these types.
+    Type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile) => Promise<...>' is not assignable to type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile) => Promise<string>'.
+      Types of parameters 'file' and 'file' are incompatible.
+        Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+          Types of property 'vault' are incompatible.
+            Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/view.ts:279:25[22m
+[90m
+[7m279[0m     await leaf.openFile(existingFile);
+[7m   [0m [91m                        ~~~~~~~~~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/view.ts (281:24): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile'.
+  The types of 'vault.read' are incompatible between these types.
+    Type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile) => Promise<...>' is not assignable to type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile) => Promise<string>'.
+      Types of parameters 'file' and 'file' are incompatible.
+        Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+          Types of property 'vault' are incompatible.
+            Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/view.ts:281:24[22m
+[90m
+[7m281[0m     activeFile.setFile(existingFile);
+[7m   [0m [91m                       ~~~~~~~~~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/view.ts (290:39): @rollup/plugin-typescript TS2345: Argument of type 'moment.Moment' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").Moment'.
+  The types of 'creationData().input' are incompatible between these types.
+    Type 'moment.MomentInput' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/moment/ts3.1-typings/moment").MomentInput'.
+      Type 'Moment' is not assignable to type 'MomentInput'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/view.ts:290:39[22m
+[90m
+[7m290[0m     const existingFile = getDailyNote(date, get(dailyNotes));
+[7m   [0m [91m                                      ~~~~[0m
+[39m
+[1m[33m(!) [plugin typescript] src/view.ts (309:25): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile'.
+  The types of 'vault.read' are incompatible between these types.
+    Type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile) => Promise<...>' is not assignable to type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile) => Promise<string>'.
+      Types of parameters 'file' and 'file' are incompatible.
+        Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+          Types of property 'vault' are incompatible.
+            Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/view.ts:309:25[22m
+[90m
+[7m309[0m     await leaf.openFile(existingFile, { active : true, mode });
+[7m   [0m [91m                        ~~~~~~~~~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin typescript] src/view.ts (311:24): @rollup/plugin-typescript TS2345: Argument of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile' is not assignable to parameter of type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile'.
+  The types of 'vault.read' are incompatible between these types.
+    Type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile) => Promise<...>' is not assignable to type '(file: import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile) => Promise<string>'.
+      Types of parameters 'file' and 'file' are incompatible.
+        Type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").TFile' is not assignable to type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").TFile'.
+          Types of property 'vault' are incompatible.
+            Property 'appendBinary' is missing in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian/obsidian").Vault' but required in type 'import("/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/node_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian").Vault'.[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/view.ts:311:24[22m
+[90m
+[7m311[0m     activeFile.setFile(existingFile);
+[7m   [0m [91m                       ~~~~~~~~~~~~[0m
+
+  [96mnode_modules/obsidian-daily-notes-interface/node_modules/obsidian/obsidian.d.ts[0m:[93m7510[0m:[93m5[0m
+    [7m7510[0m     appendBinary(file: TFile, data: ArrayBuffer, options?: DataWriteOptions): Promise<void>;
+    [7m    [0m [96m    ~~~~~~~~~~~~[0m
+    'appendBinary' is declared here.
+[39m
+[1m[33m(!) [plugin svelte] src/ui/Calendar.svelte: 'CalendarBase' is not defined[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/Calendar.svelte[22m
+[90m38: </script>
+39: 
+40: <CalendarBase
+    ^
+41:   {sources}
+42:   {today}[39m
+[1m[33m(!) [plugin svelte] src/ui/Calendar.svelte: 'activeFile' is not defined[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/Calendar.svelte[22m
+[90m49:   bind:displayedMonth
+50:   localeData={today.localeData()}
+51:   selectedId={$activeFile}
+                  ^
+52:   showWeekNums={$settings.showWeeklyNote}
+53: />[39m
+[1m[33m(!) [plugin svelte] src/ui/Calendar.svelte: 'settings' is not defined[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/Calendar.svelte[22m
+[90m50:   localeData={today.localeData()}
+51:   selectedId={$activeFile}
+52:   showWeekNums={$settings.showWeeklyNote}
+                    ^
+53: />
+54: [39m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/ui/Calendar.svelte[22m
+[90m 5: import { dailyNotes, weeklyNotes } from "./stores";
+ 6: let today;
+ 7: $: today = getToday($settings);
+                        ^
+ 8: export let displayedMonth = today;
+ 9: export let sources;[39m
+[1m[33m(!) [plugin svelte] src/obsidian-calendar-ui/src/components/Calendar.svelte: 'Nav' is not defined[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/obsidian-calendar-ui/src/components/Calendar.svelte[22m
+[90m58: 
+59: <div id="calendar-container" class="container">
+60:   <Nav
+      ^
+61:     fileCache="{fileCache}"
+62:     today="{today}"[39m
+[1m[33m(!) [plugin svelte] src/obsidian-calendar-ui/src/components/Calendar.svelte: 'isWeekend' is not defined[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/obsidian-calendar-ui/src/components/Calendar.svelte[22m
+[90m72:       {/if}
+73:       {#each month[1].days as date}
+74:         <col class:weekend="{isWeekend(date)}" />
+                                 ^
+75:       {/each}
+76:     </colgroup>[39m
+[1m[33m(!) [plugin svelte] src/obsidian-calendar-ui/src/components/Calendar.svelte: 'WeekNum' is not defined[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/obsidian-calendar-ui/src/components/Calendar.svelte[22m
+[90m89:         <tr>
+90:           {#if showWeekNums}
+91:             <WeekNum
+                ^
+92:               fileCache="{fileCache}"
+93:               selectedId="{selectedId}"[39m
+[1m[33m(!) [plugin svelte] src/obsidian-calendar-ui/src/components/Calendar.svelte: 'Day' is not defined[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/obsidian-calendar-ui/src/components/Calendar.svelte[22m
+[90m100:           {/if}
+101:           {#each week.days as day (day.format())}
+102:             <Day
+                 ^
+103:               date="{day}"
+104:               fileCache="{fileCache}"[39m
+[1m[33m(!) [plugin svelte] src/obsidian-calendar-ui/src/components/Calendar.svelte: 'PopoverMenu' is not defined[39m[22m
+[1m/Users/shuochenliang/Documents/study/scripts/obsidians/obsidian-calendar-plugin/src/obsidian-calendar-ui/src/components/Calendar.svelte[22m
+[90m115:     </tbody>
+116:   </table>
+117:   <PopoverMenu
+       ^
+118:     referenceElement="{$hoveredDay}"
+119:     metadata="{popoverMetadata}"[39m
+[32mcreated [1mmain.js[22m in [1m1.6s[22m[39m

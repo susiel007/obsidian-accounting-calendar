@@ -2,38 +2,63 @@
 
 <script lang="ts">
   import type { Moment } from "moment";
-  import {
-    Calendar as CalendarBase,
-    ICalendarSource,
-    configureGlobalMomentLocale,
-  } from "obsidian-calendar-ui";
+  import type { Plugin } from "obsidian";
+  import type { IGranularity } from "obsidian-daily-notes-interface";
+  import type { TFile } from "obsidian";
+  import CalendarBase from "../obsidian-calendar-ui/src/components/Calendar.svelte";
+  import { configureGlobalMomentLocale } from "../obsidian-calendar-ui/src/localization";
+  import type { ICalendarSource, ISourceSettings } from "../obsidian-calendar-ui/src/types";
   import { onDestroy } from "svelte";
 
   import type { ISettings } from "src/settings";
-  import { activeFile, dailyNotes, settings, weeklyNotes } from "./stores";
+  import type { Writable } from "svelte/store";
+
+  export let settingsStore: Writable<ISettings>;
+  export let activeFileStore: Writable<string>;
 
   let today: Moment;
 
-  $: today = getToday($settings);
+  $: today = getToday($settingsStore);
 
   export let displayedMonth: Moment = today;
   export let sources: ICalendarSource[];
-  export let onHoverDay: (date: Moment, targetEl: EventTarget) => boolean;
-  export let onHoverWeek: (date: Moment, targetEl: EventTarget) => boolean;
-  export let onClickDay: (date: Moment, isMetaPressed: boolean) => boolean;
-  export let onClickWeek: (date: Moment, isMetaPressed: boolean) => boolean;
-  export let onContextMenuDay: (date: Moment, event: MouseEvent) => boolean;
-  export let onContextMenuWeek: (date: Moment, event: MouseEvent) => boolean;
+  export let plugin: Plugin;
+
+  export let onHover: (
+    granularity: IGranularity,
+    date: Moment,
+    file: TFile,
+    targetEl: EventTarget,
+    isMetaPressed: boolean
+  ) => boolean;
+  export let onClick: (
+    granularity: IGranularity,
+    date: Moment,
+    existingFile: TFile,
+    inNewSplit: boolean
+  ) => boolean;
+  export let onContextMenu: (
+    granularity: IGranularity,
+    date: Moment,
+    file: TFile,
+    event: MouseEvent
+  ) => boolean;
 
   export function tick() {
     today = window.moment();
   }
 
-  function getToday(settings: ISettings) {
+  function getToday(settings: ISettings): Moment {
     configureGlobalMomentLocale(settings.localeOverride, settings.weekStart);
-    dailyNotes.reindex();
-    weeklyNotes.reindex();
     return window.moment();
+  }
+
+  function getSourceSettings(sourceId: string): ISourceSettings {
+    const source = sources.find((s) => s.id === sourceId);
+    if (source) {
+      return source.defaultSettings as unknown as ISourceSettings;
+    }
+    return { color: "default", display: "calendar-and-menu", order: 0 };
   }
 
   // 1 minute heartbeat to keep `today` reflecting the current day
@@ -42,8 +67,6 @@
 
     const isViewingCurrentMonth = displayedMonth.isSame(today, "day");
     if (isViewingCurrentMonth) {
-      // if it's midnight on the last day of the month, this will
-      // update the display to show the new month.
       displayedMonth = today;
     }
   }, 1000 * 60);
@@ -54,16 +77,13 @@
 </script>
 
 <CalendarBase
+  {plugin}
   {sources}
   {today}
-  {onHoverDay}
-  {onHoverWeek}
-  {onContextMenuDay}
-  {onContextMenuWeek}
-  {onClickDay}
-  {onClickWeek}
+  eventHandlers={{ onClick, onHover, onContextMenu }}
+  {getSourceSettings}
   bind:displayedMonth
   localeData={today.localeData()}
-  selectedId={$activeFile}
-  showWeekNums={$settings.showWeeklyNote}
+  selectedId={$activeFileStore}
+  showWeekNums={$settingsStore.showWeeklyNote}
 />

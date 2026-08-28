@@ -1,13 +1,22 @@
 {
-  "extends": "@tsconfig/svelte/tsconfig.json",
-
   "include": ["src/**/*"],
   "exclude": ["node_modules/*"],
   "compilerOptions": {
+    "target": "es2017",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "sourceMap": true,
+    "strict": false,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
     "types": ["node", "svelte", "jest"],
     "baseUrl": ".",
     "paths": {
-      "src": ["src/*"]
+      "src": ["src/*"],
+      "obsidian-calendar-ui": ["src/obsidian-calendar-ui/src"],
+      "obsidian-calendar-ui/*": ["src/obsidian-calendar-ui/src/*"]
     }
   }
 }

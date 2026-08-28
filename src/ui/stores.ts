@@ -53,7 +53,8 @@ function createWeeklyNotesStore() {
   };
 }
 
-export const settings = writable<ISettings>(defaultSettings);
+export const calPluginSettings = writable<ISettings>(defaultSettings);
+export const settings = calPluginSettings;
 export const dailyNotes = createDailyNotesStore();
 export const weeklyNotes = createWeeklyNotesStore();
 
@@ -69,4 +70,5 @@ function createSelectedFileStore() {
   };
 }
 
-export const activeFile = createSelectedFileStore();
+export const calPluginActiveFile = createSelectedFileStore();
+export const activeFile = calPluginActiveFile;

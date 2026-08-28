@@ -3,4 +3,6 @@ dist/
 data.json
 main.js
 .vscode/
+.claude/
+openspec/
 *.code-workspace

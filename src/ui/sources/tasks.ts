@@ -1,10 +1,7 @@
 import type { Moment } from "moment";
 import type { TFile } from "obsidian";
-import type { ICalendarSource, IDayMetadata, IDot } from "obsidian-calendar-ui";
-import { getDailyNote, getWeeklyNote } from "obsidian-daily-notes-interface";
-import { get } from "svelte/store";
-
-import { dailyNotes, weeklyNotes } from "../stores";
+import type { ICalendarSource, IEvaluatedMetadata, IDot } from "obsidian-calendar-ui";
+import type { IGranularity } from "obsidian-daily-notes-interface";
 
 export async function getNumberOfRemainingTasks(note: TFile): Promise<number> {
   if (!note) {
@@ -27,8 +24,6 @@ export async function getDotsForDailyNote(
   const dots = [];
   if (numTasks) {
     dots.push({
-      className: "task",
-      color: "default",
       isFilled: false,
     });
   }
@@ -36,20 +31,24 @@ export async function getDotsForDailyNote(
 }
 
 export const tasksSource: ICalendarSource = {
-  getDailyMetadata: async (date: Moment): Promise<IDayMetadata> => {
-    const file = getDailyNote(date, get(dailyNotes));
-    const dots = await getDotsForDailyNote(file);
-    return {
-      dots,
-    };
+  id: "tasks",
+  name: "Tasks",
+  defaultSettings: {
+    color: "default",
+    display: "calendar-and-menu",
+    order: 2,
   },
 
-  getWeeklyMetadata: async (date: Moment): Promise<IDayMetadata> => {
-    const file = getWeeklyNote(date, get(weeklyNotes));
+  getMetadata: async (
+    _granularity: IGranularity,
+    _date: Moment,
+    file: TFile
+  ): Promise<IEvaluatedMetadata> => {
     const dots = await getDotsForDailyNote(file);
-
+    const value = await getNumberOfRemainingTasks(file);
     return {
       dots,
+      value,
     };
   },
 };
