@@ -47,7 +47,7 @@ export const defaultSettings = Object.freeze({
 });
 
 export function appHasPeriodicNotesPluginLoaded(): boolean {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- accessing internal Obsidian plugin API
   const periodicNotes = (<any>window.app).plugins.getPlugin("periodic-notes");
   return periodicNotes && periodicNotes.settings?.weekly?.enabled;
 }
@@ -76,9 +76,7 @@ export class CalendarSettingsTab extends PluginSettingTab {
       });
     }
 
-    this.containerEl.createEl("h3", {
-      text: "General Settings",
-    });
+    new Setting(this.containerEl).setName("General Settings").setHeading();
     this.addDotThresholdSetting();
     this.addCustomFrontmatterSetting();
     this.addWeekStartSetting();
@@ -89,9 +87,7 @@ export class CalendarSettingsTab extends PluginSettingTab {
       this.plugin.options.showWeeklyNote &&
       !appHasPeriodicNotesPluginLoaded()
     ) {
-      this.containerEl.createEl("h3", {
-        text: "Weekly Note Settings",
-      });
+      new Setting(this.containerEl).setName("Weekly Note Settings").setHeading();
       this.containerEl.createEl("p", {
         cls: "setting-item-description",
         text:
@@ -102,9 +98,7 @@ export class CalendarSettingsTab extends PluginSettingTab {
       this.addWeeklyNoteFolderSetting();
     }
 
-    this.containerEl.createEl("h3", {
-      text: "Advanced Settings",
-    });
+    new Setting(this.containerEl).setName("Advanced Settings").setHeading();
     this.addLocaleOverrideSetting();
   }
 
