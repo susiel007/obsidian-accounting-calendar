@@ -2,10 +2,10 @@
   "id": "accounting-calendar",
   "name": "AccountingCalendar",
   "description": "Accounting calendarview of your daily notes",
-  "version": "1.5.10",
+  "version": "1.0.1",
   "author": "susiel007",
   "authorUrl": "https://github.com/susiel007/",
   "fundingUrl": "https://www.buymeacoffee.com/susiel007",
   "isDesktopOnly": false,
-  "minAppVersion": "0.9.11"
+  "minAppVersion": "0.12.0"
 }

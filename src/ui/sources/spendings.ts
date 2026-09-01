@@ -2,14 +2,20 @@ import type { Moment } from "moment";
 import type { TFile } from "obsidian";
 import type { ICalendarSource, IEvaluatedMetadata } from "obsidian-calendar-ui";
 import type { IGranularity } from "obsidian-daily-notes-interface";
+import { get } from "svelte/store";
+import { settings } from "../stores";
 
-export function getSpendingsFromFrontmatter(note: TFile): number {
+export function getCustomFrontmatterValue(note: TFile): number {
   if (!note) {
     return 0;
   }
+  const { customFrontmatter } = get(settings);
+  if (!customFrontmatter) {
+    return 0;
+  }
   const cache = window.app.metadataCache.getFileCache(note);
-  const spendings = cache?.frontmatter?.spendings;
-  return typeof spendings === "number" ? spendings : 0;
+  const value = cache?.frontmatter?.[customFrontmatter];
+  return typeof value === "number" ? value : 0;
 }
 
 export const spendingsSource: ICalendarSource = {
@@ -26,7 +32,7 @@ export const spendingsSource: ICalendarSource = {
     _date: Moment,
     file: TFile
   ): Promise<IEvaluatedMetadata> => {
-    const value = getSpendingsFromFrontmatter(file);
+    const value = getCustomFrontmatterValue(file);
     return {
       dots: [],
       value: value || null,

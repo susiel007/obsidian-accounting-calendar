@@ -18,6 +18,7 @@ export interface ISettings {
   weeklyNoteFolder: string;
 
   localeOverride: ILocaleOverride;
+  customFrontmatter: string;
 }
 
 const weekdays = [
@@ -42,6 +43,7 @@ export const defaultSettings = Object.freeze({
   weeklyNoteFolder: "",
 
   localeOverride: "system-default",
+  customFrontmatter: "spendings",
 });
 
 export function appHasPeriodicNotesPluginLoaded(): boolean {
@@ -78,6 +80,7 @@ export class CalendarSettingsTab extends PluginSettingTab {
       text: "General Settings",
     });
     this.addDotThresholdSetting();
+    this.addCustomFrontmatterSetting();
     this.addWeekStartSetting();
     this.addConfirmCreateSetting();
     this.addShowWeeklyNoteSetting();
@@ -103,6 +106,21 @@ export class CalendarSettingsTab extends PluginSettingTab {
       text: "Advanced Settings",
     });
     this.addLocaleOverrideSetting();
+  }
+
+  addCustomFrontmatterSetting(): void {
+    new Setting(this.containerEl)
+      .setName("Custom frontmatter field")
+      .setDesc("The frontmatter field name to read and display as a number on the calendar")
+      .addText((textfield) => {
+        textfield.setPlaceholder("spendings");
+        textfield.setValue(this.plugin.options.customFrontmatter);
+        textfield.onChange(async (value) => {
+          this.plugin.writeOptions(() => ({
+            customFrontmatter: value,
+          }));
+        });
+      });
   }
 
   addDotThresholdSetting(): void {
