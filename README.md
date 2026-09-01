@@ -5,5 +5,5 @@ This plugin for [Obsidian](https://obsidian.md/) creates a simple Calendar view 
 ![screenshot-1](./images/screenshot-1.JPG)
 
 ## Features
-- Show `spending` numbers from note's Frontmatter on Calendar View.
-- Edit `spending` in Setting Panel.
+- Show `spendings` numbers from note's Frontmatter on Calendar View.
+- Edit `spendings` in Setting Panel.
