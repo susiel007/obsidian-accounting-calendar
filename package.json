@@ -1,8 +1,8 @@
 {
-  "name": "calendar",
-  "version": "1.5.10",
-  "description": "Calendar view of your daily notes",
-  "author": "liamcain",
+  "name": "accounting-calendar",
+  "version": "1.0.2",
+  "description": "Accounting calendar view of your daily notes",
+  "author": "susiel007",
   "main": "main.js",
   "license": "MIT",
   "scripts": {
