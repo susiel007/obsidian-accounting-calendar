@@ -5,5 +5,11 @@ This plugin for [Obsidian](https://obsidian.md/) creates a simple Calendar view 
 ![screenshot-1](./images/screenshot-1.JPG)
 
 ## Features
-- Show `spendings` numbers from note's Frontmatter on Calendar View.
-- Edit `spendings` in Setting Panel.
+- Show the `spendings` Frontmatter of notes in Calendar View.
+- You can customize `spendings` in Setting Panel.
+  ![settingPanel](./images/settingPanel.png)
+
+## Example of Daily .md Note 
+[2026-08-30.md](./examples/2026-08-30.md)
+- Add new line such as`SPENDINGS:: shopping： 42.69 （jd）` in your daily note.
+- Use Dataview to auto-calculate all `SPENDINGS` in current file and show the total number in `spendings` Frontmatter.

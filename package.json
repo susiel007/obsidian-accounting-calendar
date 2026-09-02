@@ -1,6 +1,6 @@
 {
   "name": "accounting-calendar",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Accounting calendar view of your daily notes",
   "author": "susiel007",
   "main": "main.js",
