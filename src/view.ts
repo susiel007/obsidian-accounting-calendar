@@ -78,8 +78,7 @@ export default class CalendarView extends ItemView {
     this.app.workspace.trigger(TRIGGER_ON_OPEN, sources);
 
     this.calendar = new Calendar({
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any -- contentEl not typed on ItemView
-      target: (this as any).contentEl,
+      target: (this as unknown as { contentEl: HTMLElement }).contentEl,
       props: {
         plugin: this.plugin,
         settingsStore: calPluginSettings,
@@ -177,7 +176,7 @@ export default class CalendarView extends ItemView {
 
     if (activeLeaf.view instanceof FileView) {
       // Check to see if the active note is a daily-note
-      let date = (window as any).moment(activeLeaf.view.file.basename, getDailyNoteSettings().format, true);
+      let date = window.moment(activeLeaf.view.file.basename, getDailyNoteSettings().format, true);
       if (date.isValid()) {
         this.calendar.$set({ displayedMonth: date });
         return;
@@ -185,7 +184,7 @@ export default class CalendarView extends ItemView {
 
       // Check to see if the active note is a weekly-note
       const { format } = getWeeklyNoteSettings();
-      date = (window as any).moment(activeLeaf.view.file.basename, format, true);
+      date = window.moment(activeLeaf.view.file.basename, format, true);
       if (date.isValid()) {
         this.calendar.$set({ displayedMonth: date });
         return;

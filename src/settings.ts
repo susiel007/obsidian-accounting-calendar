@@ -47,9 +47,9 @@ export const defaultSettings = Object.freeze({
 });
 
 export function appHasPeriodicNotesPluginLoaded(): boolean {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- accessing internal Obsidian plugin API
-  const periodicNotes = (<any>window.app).plugins.getPlugin("periodic-notes");
-  return periodicNotes && periodicNotes.settings?.weekly?.enabled;
+  const app = window.app as unknown as { plugins: { getPlugin(id: string): { settings?: { weekly?: { enabled?: boolean } } } | null } };
+  const periodicNotes = app.plugins.getPlugin("periodic-notes");
+  return !!periodicNotes?.settings?.weekly?.enabled;
 }
 
 export class CalendarSettingsTab extends PluginSettingTab {
@@ -64,19 +64,16 @@ export class CalendarSettingsTab extends PluginSettingTab {
     this.containerEl.empty();
 
     if (!appHasDailyNotesPluginLoaded()) {
-      this.containerEl.createDiv("settings-banner", (banner) => {
-        banner.createEl("h3", {
-          text: "⚠️ Daily Notes plugin not enabled",
-        });
-        banner.createEl("p", {
-          cls: "setting-item-description",
-          text:
-            "The calendar is best used in conjunction with either the Daily Notes plugin or the Periodic Notes plugin (available in the Community Plugins catalog).",
-        });
-      });
+      new Setting(this.containerEl)
+        .setName("⚠️ Daily Notes plugin not enabled")
+        .setHeading();
+      new Setting(this.containerEl)
+        .setDesc(
+          "The calendar is best used in conjunction with either the Daily Notes plugin or the Periodic Notes plugin (available in the Community Plugins catalog)."
+        );
     }
 
-    new Setting(this.containerEl).setName("General Settings").setHeading();
+    new Setting(this.containerEl).setName("Calendar").setHeading();
     this.addDotThresholdSetting();
     this.addCustomFrontmatterSetting();
     this.addWeekStartSetting();
@@ -87,7 +84,7 @@ export class CalendarSettingsTab extends PluginSettingTab {
       this.plugin.options.showWeeklyNote &&
       !appHasPeriodicNotesPluginLoaded()
     ) {
-      new Setting(this.containerEl).setName("Weekly Note Settings").setHeading();
+      new Setting(this.containerEl).setName("Weekly Note").setHeading();
       this.containerEl.createEl("p", {
         cls: "setting-item-description",
         text:
@@ -98,7 +95,7 @@ export class CalendarSettingsTab extends PluginSettingTab {
       this.addWeeklyNoteFolderSetting();
     }
 
-    new Setting(this.containerEl).setName("Advanced Settings").setHeading();
+    new Setting(this.containerEl).setName("Advanced").setHeading();
     this.addLocaleOverrideSetting();
   }
 

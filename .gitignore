@@ -6,3 +6,4 @@ main.js
 .claude/
 openspec/
 *.code-workspace
+.DS_Store

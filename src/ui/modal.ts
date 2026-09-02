@@ -2,8 +2,7 @@ import { App, Modal } from "obsidian";
 
 interface IConfirmationDialogParams {
   cta: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- callback accepts arbitrary args
-  onAccept: (...args: any[]) => Promise<void>;
+  onAccept: (...args: unknown[]) => Promise<void>;
   text: string;
   title: string;
 }
